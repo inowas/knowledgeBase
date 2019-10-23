@@ -1,0 +1,49 @@
+version: '3.7'
+services:
+  nginx:
+    image: nginx:1.17
+    restart: always
+    container_name: nginx_proxy
+    depends_on:
+      - web
+    volumes:
+      - ./nginx/config:/etc/nginx/conf.d/app.conf
+      - ./data/static-files:/static
+      - ./data/media-files:/media
+    networks:
+      - web
+      - default
+    labels:
+      - traefik.docker.network=web
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:knowledgebase.inowas.com
+      - traefik.port=80
+      - traefik.protocol=http
+
+  web:
+    image: inowas/knowledgebase
+    restart: always
+    command: 'bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn explorer.wsgi -b 0.0.0.0:8000"'
+    depends_on:
+      - db
+    networks:
+      - default
+    expose:
+      - "8000"
+    volumes:
+      - ./src:/src
+      - ./data/static-files:/static
+      - ./data/media-files:/media
+    env_file:
+      - .env
+
+  db:
+    image: mdillon/postgis:11
+    restart: always
+    volumes:
+      - ./data/postgis-data:/var/lib/postgresql/data
+
+networks:
+  web:
+    external:
+      name: web

@@ -1,0 +1,37 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Explore Data Collections</h1>
+    <a href="/add-dataset" class="btn btn-secondary float-right">Add Dataset</a>
+    <p class="lead w-75">Create new or explore existing public datasets. Use search options to filter 
+        list of data collections.
+    </p>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="space-top-3">
+            {% include "app/datasets_filter.html" %}
+        </div>
+    </div>
+    <div class="row">
+        {% if datasets %}
+            {% for dataset in datasets %}
+                {% if dataset.public or dataset.user == request.user %}
+                    {% include "app/card_dataset.html" %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+ 
+{% endblock content %}
+
+{% block scripts %}
+
+{% include "app/search_datasets_js.html" %}
+{% include "app/editing_functions_js.html" %}
+
+{% endblock %}

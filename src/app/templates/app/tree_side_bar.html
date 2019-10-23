@@ -1,0 +1,59 @@
+<div class="sidebar" style="height: 80%">
+    <div class="sidebar-tree" style="max-height: 60%">
+        <h1 class="sidebar-title">Dataset content</h1>
+        <ul class="nav-sidebar">
+            <li class="active">
+                <button class="accordion  active"><i class="flaticon-database-1"></i>{{ dataset.name }} collection ({{ dataset.model_objects.all|length }})</button>
+                <ul class="panel show">
+                    {% for object in dataset.model_objects.all %}
+                        {% if model_object %}
+                            {% if model_object.id == object.id %}
+
+                                <button class="accordion active"><i class="flaticon-windows-1"></i>{{ object.name }} ({{ object.properties.all|length }})</button>
+                                <ul class="panel subnav show">
+
+                            {% else %}
+
+                                <button class="accordion"><i class="flaticon-windows-1"></i>{{ object.name }} ({{ object.properties.all|length }})</button>
+                                <ul class="panel subnav">
+                                
+                            {% endif %} 
+                            
+                        {% else %}
+
+                            <button class="accordion"><i class="flaticon-windows-1"></i>{{ object.name }} ({{ object.properties.all|length }})</button>
+                            <ul class="panel subnav">
+
+                        {% endif %}
+
+                            {% for property in object.properties.all %}
+
+                                <li><a href="{% url 'property-details' property.id %}" class="active">{{ property.name }}</a></li>
+
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}  
+                </ul>
+            </li>
+        </ul>
+    </div> <!-- End "sidebar-tree" -->
+
+    <div class="sidebar-metadata space-top-3" style="max-height: 40%">
+
+        {% include 'app/metadata_side_bar.html' %}
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+				acc[i].onclick = function(){
+						this.classList.toggle("active");
+						this.nextElementSibling.classList.toggle("show");
+			}
+		}
+
+</script>

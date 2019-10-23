@@ -1,0 +1,61 @@
+<div class="card radius-0 space-top-3">
+    <div class="card-header">
+        <h2 class="section-title">Properties</h2>
+    </div>
+    <!-- Editing functions -->
+    <div class="card-block">
+        <form class="details-search">
+            <input class="form-control" placeholder="Search..." id="searchInput" onkeyup="searchFunction()" type="text">
+        </form>
+        {% if request.user == dataset.user %}
+        <div class="functions-edit">
+            <div class="dropdown"><!-- Button with dropdown menu -->
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="flaticon-add"></i>Add new property
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{% url 'add-single-value' model_object.id %}">Single value (text input)</a>
+                    <a class="dropdown-item" href="{% url 'add-value-series' model_object.id %}">Time-series (text input)</a>
+                    <a class="dropdown-item" href="{% url 'upload-value-series' model_object.id %}">Time-series (file upload)</a>
+                    <a class="dropdown-item" href="{% url 'add-single-raster' model_object.id %}">Single raster (file upload)</a>
+                    <a class="dropdown-item" href="{% url 'add-raster-series' model_object.id %}">Raster time-series (file upload)</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="functions-public">
+            <button class="btn btn-secondary" role="button" onclick="deleteItem('/api/properties/')">
+            <i class="flaticon-garbage-2"></i>Delete</button>
+        </div>
+        {% endif %}
+    </div> <!-- End Editing functions -->
+    <div class="table-responsive">
+        <table class="table table-striped" id="table">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Property type</th>
+            <th>Value type</th>
+            <th>Date, time created</th>
+            <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for property in properties %}
+            <tr>
+            <td>{{ property.id }}</td>
+            <td><a href="{% url 'property-details' property.id %}" class="active">{{ property.name }}</a></td>
+            <td>{{ property.property_type.property_type }}</td>
+            <td>{{ property.value_type.value_type }}</td>
+            <td>{{ property.created }}</td>
+            <td>
+                <div class="checkbox checkbox-primary">
+                    <input type="checkbox" class="checkbox-input">
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    </div> <!-- End "table-responsive" -->
+</div> <!-- End "table card" -->

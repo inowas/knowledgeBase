@@ -1,0 +1,55 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        var apiURL = "/api/dataset-tree/"
+        var datasetsURL = "/dataset-details/"
+        var objectsURL = "/feature-details/"
+        var propertiesURL = "/property-details/"
+
+        $.getJSON(apiURL + "{{ dataset.id }}" + "?format=json", createTree);
+
+        function createTree(data){
+            var json = data;
+            var tree = [];
+            for (var i in json) {
+                object = json[i]
+                tree.push(
+                    {
+                        "text": object["object_type"]
+                                + ' - '+object["name"],
+                        "href": objectsURL + object["id"],
+                        "nodes": [],
+                        "state":  {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": true,
+                            "selected": false
+                        }
+                    }
+                )
+                
+                for (var j in object["properties"]) {
+                    var property = object["properties"][j]
+                    tree[i]["nodes"].push(
+                        {
+                            "text": "<i>" +
+                                    property["property_type"]+' - '+property["name"] +
+                                    "</i>",
+                            "href": propertiesURL + property["id"]
+                        }
+                    )
+                }
+            }
+
+            var options = {
+                bootstrap2: false, 
+                showTags: true,
+                levels: 5,
+                enableLinks: true,
+                data: tree,
+                expandIcon: "glyphicon glyphicon-chevron-right",
+                collapseIcon : "glyphicon glyphicon-chevron-down"
+            };
+            $('#treeview').treeview(options);
+        }
+    });
+</script>

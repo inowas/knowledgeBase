@@ -1,0 +1,28 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+
+<div class="page-header">
+    {% include 'app/breadcrumb.html' %}
+</div>
+
+<div class="row">  
+    <div class="col-4">
+        {% include 'app/tree_side_bar.html' %}
+    </div> <!-- End "col-4" -->
+
+    <div class="col-8">
+        {% include 'app/card_map.html' %}
+        {% include 'app/table_feature_details.html' %}   
+    </div> <!-- End "col-8" -->
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+    {% include 'app/search_in_table_js.html' %}
+    {% include 'app/card_map_js.html' %}
+    {% include "app/editing_functions_js.html" %}
+
+{% endblock %}

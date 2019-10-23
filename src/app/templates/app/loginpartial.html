@@ -1,0 +1,25 @@
+{% if user.is_authenticated %}
+
+<ul class="navbar-right">
+    <li class="nav-item">
+        Hello, {{ user.username }}
+    </li>
+    <li class="nav-item">
+        <a href="{% url 'logout' %}">
+            <i class="flaticon-user"></i>Log Out
+        </a>
+    </li>
+</ul>
+
+
+{% else %}
+
+<ul class="navbar-right">
+    <li class="nav-item">
+        <a href="{% url 'login' %}">
+            <i class="flaticon-user"></i>Log In
+        </a>
+    </li>
+</ul>
+
+{% endif %}

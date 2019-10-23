@@ -1,0 +1,19 @@
+
+<div class="card">
+    <img class="card-img-top" src="{{ dataset.tile_url }}" style="height:200px">
+    <div class="card-block">
+        
+        <!--<a href="{% url 'dataset-details' dataset.id %}">
+            <img src="{{ dataset.tile_url }}" class="img-responsive">
+        </a>
+        <br>-->
+        <a href="{% url 'dataset-details' dataset.id %}">
+            <p><strong>Dataset name: </strong>{{ dataset.name }}</p>
+        </a>
+        <p><strong>Owner: </strong>{{ dataset.user }}</p>
+        {% if dataset.model_objects %}
+            <p><strong>Total objects number: </strong>{{ dataset.model_objects.all|length }}</p>
+        {% endif %}
+        <p><strong>Details: </strong>{{ dataset.descr }}</p>
+    </div>
+</div>

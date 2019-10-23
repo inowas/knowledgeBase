@@ -1,0 +1,352 @@
+[
+ {
+    "model": "app.PropertyType",
+    "pk": 1,
+    "fields": {
+      "property_type": "meteo:air_temperature"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 2,
+    "fields": {
+      "property_type": "meteo:precipitation"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 3,
+    "fields": {
+      "property_type": "meteo:evaporation"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 4,
+    "fields": {
+      "property_type": "meteo:evapotranspiration"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 5,
+    "fields": {
+      "property_type": "meteo:wind_speed"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 6,
+    "fields": {
+      "property_type": "meteo:wind_direction"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 7,
+    "fields": {
+      "property_type": "meteo:air_pressure"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 8,
+    "fields": {
+      "property_type": "meteo:air_rel_humidity"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 9,
+    "fields": {
+      "property_type": "meteo:air_abs_humidity"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 10,
+    "fields": {
+      "property_type": "topo:elevation"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 11,
+    "fields": {
+      "property_type": "topo:slope"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 12,
+    "fields": {
+      "property_type": "topo:slope_aspect"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 13,
+    "fields": {
+      "property_type": "topo:flow_direction"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 14,
+    "fields": {
+      "property_type": "topo:flow_accumulation"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 15,
+    "fields": {
+      "property_type": "topo:morphology_type"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 16,
+    "fields": {
+      "property_type": "geology:soil_type"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 17,
+    "fields": {
+      "property_type": "geology:soil_type"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 18,
+    "fields": {
+      "property_type": "geology:lythology_age"
+    }
+  },
+ {
+    "model": "app.PropertyType",
+    "pk": 19,
+    "fields": {
+      "property_type": "geology:lythology_genesis"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 20,
+    "fields": {
+      "property_type": "geology:layer_top_elevation"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 21,
+    "fields": {
+      "property_type": "geology:layer_bottom_elevation"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 22,
+    "fields": {
+      "property_type": "geology:layer_thickness"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 23,
+    "fields": {
+      "property_type": "hydrogeology:porosity"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 24,
+    "fields": {
+      "property_type": "hydrogeology:effective_porosity"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 25,
+    "fields": {
+      "property_type": "hydrogeology:particle_density"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 26,
+    "fields": {
+      "property_type": "hydrogeology:bulk_density"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 27,
+    "fields": {
+      "property_type": "hydrogeology:hydraulic_conductivity"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 28,
+    "fields": {
+      "property_type": "hydrogeology:hydraulic_transmissivity"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 29,
+    "fields": {
+      "property_type": "hydrogeology:specific_storage"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 30,
+    "fields": {
+      "property_type": "hydrogeology:storativity"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 31,
+    "fields": {
+      "property_type": "hydrogeology:hydraulic_head"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 32,
+    "fields": {
+      "property_type": "hydrogeology:confinement"
+    }
+  },
+   {
+    "model": "app.PropertyType",
+    "pk": 33,
+    "fields": {
+      "property_type": "hydrogeology:water_content"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 34,
+    "fields": {
+      "property_type": "hydrology:stage"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 35,
+    "fields": {
+      "property_type": "hydrology:discharge"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 36,
+    "fields": {
+      "property_type": "hydrology:flow_velocity"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 37,
+    "fields": {
+      "property_type": "hydrochemistry:temperature"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 38,
+    "fields": {
+      "property_type": "hydrochemistry:electrical_conductivity"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 39,
+    "fields": {
+      "property_type": "hydrochemistry:ph"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 40,
+    "fields": {
+      "property_type": "hydrochemistry:dissolved_oxigen"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 41,
+    "fields": {
+      "property_type": "hydrochemistry:dissolved_nitrogen"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 42,
+    "fields": {
+      "property_type": "hydrochemistry:dissolved_carbon_dioxide"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 43,
+    "fields": {
+      "property_type": "hydrochemistry:BOD"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 44,
+    "fields": {
+      "property_type": "hydrochemistry:COD"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 45,
+    "fields": {
+      "property_type": "hydrochemistry:TOD"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 46,
+    "fields": {
+      "property_type": "meteo:other"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 47,
+    "fields": {
+      "property_type": "topo:other"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 48,
+    "fields": {
+      "property_type": "hydrology:other"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 49,
+    "fields": {
+      "property_type": "hydrogeology:other"
+    }
+  },
+  {
+    "model": "app.PropertyType",
+    "pk": 50,
+    "fields": {
+      "property_type": "hydrochemistry:other"
+    }
+  }
+]

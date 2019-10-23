@@ -1,0 +1,125 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+<div class="page-header">
+    {% include 'app/breadcrumb.html' %}
+</div>
+
+<div class="row">  
+    <div class="col-4">
+        {% include 'app/tree_side_bar.html' %}
+    </div> <!-- End "col-4" -->
+
+    <div class="col-8">
+
+        {% if value_type == 'value_time_series' %}
+            <div class="card radius-0">
+                <div class="card-header">
+                    <h2 class="section-title">Plot</h2>
+                </div>
+                <div class="container">
+                    {{ plot|safe }}
+                </div>
+            </div> <!-- End "plot card" -->
+            <div class="card radius-0 space-top-3">
+                <div class="card-header">
+                    <h2 class="section-title">Values</h2>
+                </div>
+                <div class="container">
+                    {{ table|safe }}
+                </div>
+            </div> <!-- End "table card" -->
+
+        {% elif value_type == 'raster_time_series' %}
+            <div class="card radius-0">
+                <div class="card-header">
+                    <h2 class="section-title">Histogram</h2>
+                </div>
+                <div class="container">
+                    {{ plot|safe }}
+                    <hr />
+                    {{ controls|safe }}
+                </div>
+            </div> <!-- End "plot card" -->
+
+            <div class="card radius-0 space-top-3">
+                <div class="card-header">
+                    <h2 class="section-title">Map</h2>
+                </div>
+                <div class="container">
+                    {{ raster_map|safe }}
+                </div>
+            </div> <!-- End "map card" -->
+
+        {% elif value_type == 'raster' %}
+
+            <div class="card radius-0">
+                <div class="card-header">
+                    <h2 class="section-title">Histogram</h2>
+                </div>
+                <div class="container">
+                    {{ plot|safe }}
+                </div>
+            </div> <!-- End "plot card" -->
+
+            <div class="card radius-0 space-top-3">
+                <div class="card-header">
+                    <h2 class="section-title">Map</h2>
+                </div>
+                <div class="container">
+                    {{ raster_map|safe }}
+                </div>
+            </div> <!-- End "map card" -->
+
+        {% elif value_type == 'numerical' %}
+
+        <div class="card radius-0">
+            <div class="card-header">
+                <h2 class="section-title">Values</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped" id="table">
+                    <thead>
+                        <tr>
+                        <th>Value</th>
+                        <th>{{ value }}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div> <!-- End "table card" -->
+
+        {% elif value_type == 'categorical' %}
+
+        <div class="card radius-0">
+            <div class="card-header">
+                <h2 class="section-title">Values</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped" id="table">
+                    <thead>
+                        <tr>
+                        <th>Value</th>
+                        <th>{{ value }}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div> <!-- End "table card" -->
+    
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+    {% include "app/editing_functions_js.html" %}
+
+    {% if script %}
+
+        {{ script|safe }}
+    {% endif %}
+
+{% endblock scripts %}
