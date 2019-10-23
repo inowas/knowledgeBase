@@ -38,7 +38,7 @@ services:
       - .env
 
   db:
-    image: mdillon/postgis:11
+    image: mdillon/postgis:10
     restart: always
     volumes:
       - ./data/postgis-data:/var/lib/postgresql/data
